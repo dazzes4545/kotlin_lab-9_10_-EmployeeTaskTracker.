@@ -14,6 +14,7 @@ fun main() {
     println("Опыт работы: ${employee.getYearsOfExperience()}")
     */
 
+    /*
     //zad3
     val task1 = Task("Сдать отчет", "Подготовить отчет за месяц", Priority.high)
     val task2 = Task("Сдать отчет", "Подготовить отчет за месяц", Priority.high)
@@ -28,4 +29,13 @@ fun main() {
     val task1Copy = task1.copy(priority = Priority.low)
     println("Ориджинал: $task1")
     println("Копия с др. приоритетом: $task1Copy")
+    */
+
+
+    //zad4
+    val devDept = DevelopmentDepartment()
+    val testDept = TestingDepartment()
+    devDept.printDepartmentGoal()
+    testDept.printDepartmentGoal()
 }
+
