@@ -31,11 +31,29 @@ fun main() {
     println("Копия с др. приоритетом: $task1Copy")
     */
 
-
+    /*
     //zad4
     val devDept = DevelopmentDepartment()
     val testDept = TestingDepartment()
     devDept.printDepartmentGoal()
     testDept.printDepartmentGoal()
+    */
+
+
+    //zad5
+    val employee = Employee().apply {
+        setFullName("Петров Петр Петрович")
+        setPosition("Senior Developer")
+        setSalary(150000)
+        setYearsOfExperience(8)
+    }
+    val reports: List<ReportGenerator> = listOf(
+        employee,
+        DevelopmentDepartment()
+    ) as List<ReportGenerator>
+    reports.forEachIndexed { index, generator ->
+        println("\nОтчет #${index + 1}:")
+        println(generator.generateReport())
+    }
 }
 
