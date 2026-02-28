@@ -1,5 +1,5 @@
 enum class Priority {
-    LOW, MEDIUM, HIGH
+    low, medium, high
 }
 
 data class Task(
