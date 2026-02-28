@@ -1,8 +1,9 @@
-class Employee : ReportGenerator{
+class Employee : ReportGenerator {
     private var fullName: String = ""
     private var position: String = ""
     private var salary: Int = 0
     private var yearsOfExperience: Int = 0
+    var currentTask: Task? = null
 
     fun getFullName(): String = fullName
     fun getPosition(): String = position
@@ -39,13 +40,24 @@ class Employee : ReportGenerator{
         }
     }
 
+    fun assignTask(newTask: Task) {
+        if (currentTask != null && !currentTask!!.isCompleted) {
+            println("Сотрудник ${fullName} уже занят \"${currentTask!!.title}\"")
+        } else {
+            currentTask = newTask
+            println("Сотруднику ${fullName} назначена задача \"${newTask.title}\"")
+        }
+    }
+
     override fun generateReport(): String {
         return """
             ФИО: $fullName
             Должность: $position
             Зарплата: $salary руб.
             Опыт работы: $yearsOfExperience лет
+            Текущая задача: ${currentTask?.title ?: "Нет задачи"}
+            Статус задачи: ${if (currentTask?.isCompleted == true) "Выполнена" else if (currentTask != null) "В работе" else "—"}
+            =========================
         """
     }
 }
-

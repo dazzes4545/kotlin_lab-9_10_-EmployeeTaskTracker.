@@ -55,5 +55,51 @@ fun main() {
         println("\nОтчет #${index + 1}:")
         println(generator.generateReport())
     }
+
+    //zad6
+    val employee = Employee().apply {       // Создание сотрудника
+        setFullName("Сидоров Сидор Сидорович")
+        setPosition("Team Lead")
+        setSalary(200000)
+        setYearsOfExperience(12)
+    }
+
+    val devDept = DevelopmentDepartment()       // Создание отдела
+
+    val task1 = Task(       // Создание отдела
+
+        title = "Рефакторинг кода",
+        description = "Переписать устаревшие модули",
+        priority = Priority.high
+    )
+
+    val task2 = Task(
+        title = "Документация",
+        description = "Обновить техническую документацию",
+        priority = Priority.medium
+    )
+
+    val task3 = Task(
+        title = "Code review",
+        description = "Проверить пул-реквесты",
+        priority = Priority.high
+    )
+
+    println("Назначение задач")     // Моделирование процесса
+    employee.assignTask(task1)
+    employee.assignTask(task2)
+
+
+    task1.isCompleted = true    // Завершаем первую задачу
+    println("\nЗадача \"${task1.title}\" выполнена!")
+
+    employee.assignTask(task3)    // Назначаем новую задачу
+
+
+    // Сводный отчет
+    println("\nСВОДНЫЙ ОТЧЕТ")
+    println(employee.generateReport())
+    println("\nОТЧЕТ ОТДЕЛА")
+    println(devDept.generateReport())
 }
 
